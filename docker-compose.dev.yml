@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app          # live code mount → uvicorn --reload picks up changes
+    env_file: .env
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:5173"
+    volumes:
+      - ./frontend/src:/app/src          # HMR watches this
+      - ./frontend/public:/app/public
+    environment:
+      - BACKEND_URL=http://backend:8000  # Vite proxy → backend service
+    depends_on:
+      - backend
+    restart: unless-stopped

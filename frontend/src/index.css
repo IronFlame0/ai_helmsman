@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    @apply h-full;
+  }
+  body {
+    @apply bg-gray-950 text-gray-100 antialiased;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { @apply bg-transparent; }
+::-webkit-scrollbar-thumb { @apply bg-gray-700 rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-gray-500; }
+
+/* Prose overrides for react-markdown inside dark theme */
+.prose-dark {
+  @apply text-gray-200;
+}
+.prose-dark code {
+  @apply bg-gray-800 text-emerald-300 px-1 py-0.5 rounded text-sm font-mono;
+}
+.prose-dark pre {
+  @apply bg-gray-800 rounded-lg p-4 overflow-x-auto my-3;
+}
+.prose-dark pre code {
+  @apply bg-transparent p-0;
+}
+.prose-dark a {
+  @apply text-blue-400 underline;
+}
+.prose-dark strong {
+  @apply text-gray-100 font-semibold;
+}
+.prose-dark ul { @apply list-disc pl-5 space-y-1; }
+.prose-dark ol { @apply list-decimal pl-5 space-y-1; }
+.prose-dark p { @apply mb-3 last:mb-0; }

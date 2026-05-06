@@ -1,0 +1,37 @@
+.env
+.env.local
+.env.*.local
+note.md
+
+# ── AI Helmsman ────────────────────────────────────────────
+backend/chroma_store/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/public/
+frontend/.vite/
+
+*.log
+npm-debug.log*
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# macOS
+.DS_Store
+
+inbox.json
+
+PROCESS_TASK.md
+
+notes/
